@@ -22,9 +22,9 @@ from zoomeye.sdk import ZoomEye
 from shodan import Shodan, APIError
 
 
-sender_email = "tengistest@gmail.com" # Your email address
-allowed_networks = ['103.51.60.0/24', '103.142.243.0/24'] # Your network subnet
-recipients = ["xyptonize@gmail.com", "theifurymongolia@gmail.com"]  # Mail Receiver's email address
+sender_email = "your_e-mail@gmail.com" # Your email address
+allowed_networks = ['0.0.0.0/18', '8.8.8.8/18'] # Your network subnet
+recipients = ["example@gmail.com", "example2@gmail.com"]  # Mail Receiver's email address
 
 
 # Retrieve API keys and credentials from environment variables
@@ -199,14 +199,15 @@ def send_email(subject, body, recipients):
 
 
 if __name__ == '__main__':
-    if len(sys.argv) < 4 or sys.argv[1].lower() != '-u' or sys.argv[3].lower() != '-s':
-        print('Usage: python3 faviconfinder.py -u <favicon-url1,favicon-url2,...> -s <platform>')
+    if len(sys.argv) < 6 or sys.argv[1].lower() != '-u' or sys.argv[3].lower() != '-s' or sys.argv[6].lower() not in {'yes', 'no'}:
+        print('Usage: python3 faviconfinder.py -u <favicon-url1,favicon-url2,...> -s <platform> -m <yes/no>')
         print('Choose between Shodan, ZoomEye, or Censys:')
         sys.exit(1)
 
-    # Get the platform and remove it from the sys.argv list
+    # Get the platform and send_email_flag remove it from the sys.argv list
     platform = sys.argv[4].lower()
-    sys.argv = sys.argv[:4]
+    send_email_flag = sys.argv[6].lower()
+    favicon_urls = sys.argv[2].split(',')
 
     if platform == 'shodan':
         print("If the results give some benign DNS address or IP address, then it is most likely a phishing/impersonated website!!!\n")
@@ -255,12 +256,13 @@ if __name__ == '__main__':
 
     for line in merged:
         print(line)
-    print("\nFiltered: ",ipfilter(merged))
+    print("\nFiltered: \n", "\n".join(str(item) for item in ipfilter(merged)))
+
     formatted_data = "\n".join(str(entry) for entry in ipfilter(merged))
 
-    # recipients = ["xyptonize@gmail.com", "theifurymongolia@gmail.com"]  # Add email addresses here
-    subject = "Favicon Finder Results"
-    send_email(subject, formatted_data, recipients)
+    if send_email_flag == 'yes':
+        subject = "Detective Iconan"
+        send_email(subject, formatted_data, recipients)
 
 # if __name__ == '__main__':
 #     if len(sys.argv) < 4 or sys.argv[1].lower() != '-u' or sys.argv[3].lower() != '-s':

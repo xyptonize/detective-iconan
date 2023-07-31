@@ -2,7 +2,7 @@
 ## Usage
 ```bash
 pip3 install -r requirements.txt
-python3 faviconfinder.py -u <favicon-url1,favicon-url2,...> -s <platform>
+python3 faviconfinder.py -u <favicon-url1,favicon-url2,...> -s <platform> -mail <yes/no>
 ```
 
 ## About Faviconfinder:
