@@ -1,4 +1,9 @@
 # faviconfinder
+## Usage
+```bash
+python3 faviconfinder.py -u <favicon-url1,favicon-url2,...> -s <platform>
+```
+
 ## About
 Faviconfinder is just a poor tool which detects cloned phishing websites. In order to find benign websites the cloned website must contain same favicon.
 I think this tool has no practical usage since Veteran blackhats don't clone websites they make it by themselves so it won't work against that. But it can be used against script kiddies who just clones and deployes it for a little scam money. 
