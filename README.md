@@ -1,6 +1,7 @@
 # faviconfinder
 ## Usage
 ```bash
+pip3 install requirements.txt
 python3 faviconfinder.py -u <favicon-url1,favicon-url2,...> -s <platform>
 ```
 
