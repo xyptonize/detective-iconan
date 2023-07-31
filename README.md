@@ -18,3 +18,6 @@ While this tool may not be effective against veteran blackhat hackers who create
 I plan to enhance the tool's flexibility by making the filters more customizable. This improvement will empower users to specify their own specific filters, allowing for a more tailored and precise search not just for cloned phishing websites. The goal is to make Faviconfinder a versatile three-in-one platform, effectively integrating the capabilities of Shodan, Censys, and Zoomeye to offer comprehensive website analysis.
 
 Additionally, I intend to transform Faviconfinder into a fully-fledged service. This means users can access the tool via an online platform where they can start a search and receive email alerts once the process is complete. This feature will enable users to conveniently monitor potential threats and stay informed about their online presence without the need for manual checks.
+
+## Extra
+I know the code so messy. I'm not a programmer or a coder so don't mind it plez xD
